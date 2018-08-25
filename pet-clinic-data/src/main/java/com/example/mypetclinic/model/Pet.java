@@ -1,11 +1,13 @@
 package com.example.mypetclinic.model;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import java.time.LocalDate;
 
-import lombok.Data;
-
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class Pet {
+public class Pet extends BaseEntity {
 
     private PerType perType;
     private Owner owner;
