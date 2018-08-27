@@ -1,9 +1,9 @@
 package com.example.mypetclinic.service;
 
 import com.example.mypetclinic.model.Owner;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class OwnerServiceMap extends AbstractMapBasedService<Owner> implements OwnerService {
 
     @Override
