@@ -4,10 +4,14 @@ import com.example.mypetclinic.model.BaseEntity;
 
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class AbstractMapBasedService<V extends BaseEntity> implements CrudService<V, Long> {
+
+    private final AtomicLong idGenerator = new AtomicLong();
 
     private final Map<Long, V> map = new ConcurrentHashMap<>();
 
@@ -23,7 +27,9 @@ public class AbstractMapBasedService<V extends BaseEntity> implements CrudServic
 
     @Override
     public V save(V obj) {
-        return map.put(obj.getId(), obj);
+        long id = Optional.ofNullable(obj.getId()).orElseGet(idGenerator::incrementAndGet);
+        obj.setId(id);
+        return map.put(id, obj);
     }
 
     @Override
