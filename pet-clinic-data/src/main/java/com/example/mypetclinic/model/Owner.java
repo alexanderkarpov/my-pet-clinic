@@ -1,9 +1,11 @@
 package com.example.mypetclinic.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.Set;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class Owner extends Person {
 
