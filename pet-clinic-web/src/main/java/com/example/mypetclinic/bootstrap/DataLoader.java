@@ -1,8 +1,10 @@
 package com.example.mypetclinic.bootstrap;
 
 import com.example.mypetclinic.model.Owner;
+import com.example.mypetclinic.model.PetType;
 import com.example.mypetclinic.model.Vet;
 import com.example.mypetclinic.service.OwnerService;
+import com.example.mypetclinic.service.PetTypeService;
 import com.example.mypetclinic.service.VetService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
@@ -14,15 +16,25 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args) {
         log.info("Run DataLoader");
+
+        PetType dog = new PetType();
+        dog.setName("Dog");
+        petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        cat.setName("Cat");
+        petTypeService.save(cat);
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Michael");
