@@ -1,6 +1,7 @@
-package com.example.mypetclinic.service;
+package com.example.mypetclinic.service.map;
 
 import com.example.mypetclinic.model.BaseEntity;
+import com.example.mypetclinic.service.CrudService;
 
 import java.util.HashSet;
 import java.util.Map;

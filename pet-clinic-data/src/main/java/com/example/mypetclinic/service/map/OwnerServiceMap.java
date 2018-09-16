@@ -1,6 +1,7 @@
-package com.example.mypetclinic.service;
+package com.example.mypetclinic.service.map;
 
 import com.example.mypetclinic.model.Owner;
+import com.example.mypetclinic.service.OwnerService;
 import org.springframework.stereotype.Service;
 
 @Service

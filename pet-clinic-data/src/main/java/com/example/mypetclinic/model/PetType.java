@@ -3,7 +3,7 @@ package com.example.mypetclinic.model;
 import lombok.Data;
 
 @Data
-public class PerType {
+public class PetType {
 
     private String name;
 
